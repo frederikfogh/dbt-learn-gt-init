@@ -2,20 +2,18 @@
     materialized='view'
 )}}
 
-with  customers as (
-    select
-        ID as customer_id,
-        NAME as name
-    from raw_jaffle_shop.raw_customers
+with customers as (
+   select 
+   *
+   from
+  {{ref('stg_jaffle_shop_customers')}}
 ),
 
-orders as (
-
-    select
-        id as order_id ,
-        customer as customer_id,
-        ordered_at as order_date
-    from raw_jaffle_shop.raw_orders
+orders as ( 
+   select 
+   *
+   from
+    {{ref('stg_jaffle_shop_orders')}}
 ),
 customer_orders as (
 
