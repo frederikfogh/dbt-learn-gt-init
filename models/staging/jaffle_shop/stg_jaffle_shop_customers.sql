@@ -1,4 +1,17 @@
+with source as (
+
+    select * from {{ source('jaffle_shop', 'raw_customers') }}
+
+),
+
+renamed as (
+
     select
-        ID as customer_id,
-        NAME as name
-from {{source('jaffle_shop', 'raw_customers')}}
+        id,
+        name
+
+    from source
+
+)
+
+select * from renamed

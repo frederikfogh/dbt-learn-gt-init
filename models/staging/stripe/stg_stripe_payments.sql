@@ -1,9 +1,9 @@
-    select
-        id as payment_id,
-        orderid as order_id,
-        paymentmethod as payment_method,
-        status,
-        amount as amount, 
-        created as created_at,
-        _batched_at as batched_at
-    from dbt.stripe.payment
+select
+    id as payment_id,
+    orderid as order_id,
+    paymentmethod as payment_method,
+    status,
+    -- amount is stored in cents, convert it to dollars
+    amount / 100 as amount,
+    created as created_at
+from {{ source('stripe', 'payment') }}

@@ -3,5 +3,28 @@ sources:
     database: DBT
     schema: raw_jaffle_shop
     tables: 
-      - name: raw_customers
-      - name: raw_orders
+          - name: dim_locations
+          - name: dim_products
+          - name: dim_raw_customers
+          - name: dim_supplies
+          - name: fct_order_items
+          - name: fct_orders
+          - name: metricflow_time_spine
+          - name: my_first_dbt_model
+          - name: my_second_dbt_model
+          - name: raw_customers
+          - name: raw_items
+          - name: raw_orders
+          - name: raw_products
+          - name: raw_stores
+          - name: raw_supplies
+          - name: stg_jaffle_shop__orders
+          - name: stg_jaffle_shop_customers
+          - name: stg_jaffle_shop_orders
+          - name: stg_jaffleshop_customers
+          - name: stg_jaffleshop_locations
+          - name: stg_jaffleshop_order_items
+          - name: stg_jaffleshop_orders
+          - name: stg_jaffleshop_products
+          - name: stg_jaffleshop_supplies
+          - name: stg_stripe_payments'
