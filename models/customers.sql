@@ -1,23 +1,17 @@
-with customers as (
-
+with  customers as (
     select
-        id as customer_id,
-        first_name,
-        last_name
-
-    from raw.jaffle_shop.customers
-
+        ID as customer_id,
+        NAME as name
+    from raw_jaffle_shop.raw_customers
 ),
 
 orders as (
 
     select
         id as order_id,
-        user_id as customer_id,
-        order_date,
-        status
-
-    from raw.jaffle_shop.orders
+        customer as customer_id,
+        ordered_at as order_date
+    from raw_jaffle_shop.raw_orders
 
 ),
 
@@ -41,8 +35,7 @@ final as (
 
     select
         customers.customer_id,
-        customers.first_name,
-        customers.last_name,
+        customers.name,
         customer_orders.first_order_date,
         customer_orders.most_recent_order_date,
         coalesce(customer_orders.number_of_orders, 0) as number_of_orders
