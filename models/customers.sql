@@ -1,3 +1,7 @@
+{{config(
+    materialized='view'
+)}}
+
 with  customers as (
     select
         ID as customer_id,
@@ -8,7 +12,7 @@ with  customers as (
 orders as (
 
     select
-        id as order_id,
+        id as order_id ,
         customer as customer_id,
         ordered_at as order_date
     from raw_jaffle_shop.raw_orders
