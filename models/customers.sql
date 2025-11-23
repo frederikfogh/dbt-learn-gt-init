@@ -12,9 +12,8 @@ orders as (
         customer as customer_id,
         ordered_at as order_date
     from raw_jaffle_shop.raw_orders
-
+∏
 ),
-
 customer_orders as (
 
     select
