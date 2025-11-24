@@ -1,0 +1,24 @@
+models:
+  - name: stg_jaffle_shop_customers
+    description: "Staging table for Jaffle Shop data."
+    columns:
+      - name: id
+        description: "Unique identifier for each order."
+        data_tests:
+            - not_null
+            - unique
+  - name: stg_jaffle_shop_orders
+    description: "Staging table for Jaffle Shop data."
+    columns:
+      - name: order_id
+        description: "Unique identifier for each order."
+        data_tests:
+            - not_null
+            - unique
+      - name: customer_id
+        description: "Identifier for the customer who placed the order."
+        data_tests:
+          - relationships:
+              arguments: # available in v1.10.5 and higher. Older versions can set the <argument_name> as the top-level property.
+                to: ref('stg_jaffle_shop_customers')
+                field: id
