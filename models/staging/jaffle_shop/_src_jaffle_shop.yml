@@ -1,6 +1,7 @@
 sources:
   - name: jaffle_shop
     database: DBT
+    description: "Source data for the Jaffle Shop."
     schema: raw_jaffle_shop
     tables: 
           - name: dim_locations
@@ -13,6 +14,7 @@ sources:
           - name: my_first_dbt_model
           - name: my_second_dbt_model
           - name: raw_customers
+          - name: raw_items
           - name: raw_items
           - name: raw_orders
           - name: raw_products

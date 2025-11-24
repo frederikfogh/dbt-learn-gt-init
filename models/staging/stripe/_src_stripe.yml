@@ -1,6 +1,7 @@
 sources:
   - name: stripe
     database: DBT
+    description: "Source data for Stripe."
     schema: stripe
     tables:
       - name: payment
